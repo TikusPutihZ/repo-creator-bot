@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Leaf, Search, MapPin } from "lucide-react";
+import { Search, MapPin } from "lucide-react";
+import agroconnectLogo from "@/assets/agroconnect-logo.png";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import PostCard from "@/components/PostCard";
