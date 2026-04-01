@@ -13,6 +13,8 @@ import ScannerPage from "./pages/ScannerPage";
 import PostDetail from "./pages/PostDetail";
 import CreatePost from "./pages/CreatePost";
 import ProfilePage from "./pages/ProfilePage";
+import ChatListPage from "./pages/ChatListPage";
+import ChatPage from "./pages/ChatPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
