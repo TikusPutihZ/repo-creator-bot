@@ -28,7 +28,7 @@ const LoginPage = () => {
         className="flex flex-col items-center w-full max-w-sm"
       >
         {/* Logo */}
-        <img src={agroconnectLogo} alt="AgroConnect" className="h-12 object-contain mb-1" />
+        <img src={agroconnectCircle} alt="AgroConnect" className="h-20 w-20 object-contain mb-1" />
         <p className="font-cursive text-lg text-muted-foreground mt-0.5">by RasaRakyat</p>
         <p className="text-sm text-muted-foreground mt-3 text-center">
           Share your harvest, grow your community

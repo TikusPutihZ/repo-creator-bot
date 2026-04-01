@@ -14,6 +14,7 @@ const Index = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeDistance, setActiveDistance] = useState("5 km");
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const filtered = posts
     .filter((p) => !activeCategory || p.category === activeCategory)
