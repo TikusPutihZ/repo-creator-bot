@@ -99,7 +99,7 @@ const MapPage = () => {
                 </Badge>
               </div>
             </div>
-            <Button className="w-full mt-3 rounded-xl gap-2" size="sm">
+            <Button className="w-full mt-3 rounded-xl gap-2" size="sm" onClick={() => navigate(`/chat/${selectedPin.id}`)}>
               <MessageCircle className="w-4 h-4" />
               Chat with Seller
             </Button>
