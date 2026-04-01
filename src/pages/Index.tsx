@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, MapPin, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import agroconnectCircle from "@/assets/agroconnect-circle.png";
+import agroconnectOriginal from "@/assets/agroconnect-original.png";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import PostCard from "@/components/PostCard";
