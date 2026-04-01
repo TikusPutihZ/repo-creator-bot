@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, X, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mapPins } from "@/data/mockData";
+import mapBackground from "@/assets/map-background.jpg";
 
 const MapPage = () => {
   const [selectedPin, setSelectedPin] = useState<typeof mapPins[0] | null>(null);
