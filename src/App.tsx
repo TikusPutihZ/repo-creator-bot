@@ -10,7 +10,9 @@ import { AnimatePresence } from "framer-motion";
 import MobileShell from "./components/MobileShell";
 import SplashScreen from "./pages/SplashScreen";
 import OnboardingScreen from "./pages/OnboardingScreen";
+import AuthLandingPage from "./pages/AuthLandingPage";
 import LoginPage from "./pages/LoginPage";
+import CreateAccountPage from "./pages/CreateAccountPage";
 import Index from "./pages/Index";
 import MapPage from "./pages/MapPage";
 import ScannerPage from "./pages/ScannerPage";
@@ -29,7 +31,9 @@ const AppRoutes = () => {
   return (
     <MobileShell>
       <Routes>
-        <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : <LoginPage />} />
+        <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : <AuthLandingPage />} />
+        <Route path="/login" element={isLoggedIn ? <Navigate to="/home" /> : <LoginPage />} />
+        <Route path="/signup" element={isLoggedIn ? <Navigate to="/home" /> : <CreateAccountPage />} />
         <Route path="/home" element={isLoggedIn ? <Index /> : <Navigate to="/" />} />
         <Route path="/map" element={isLoggedIn ? <MapPage /> : <Navigate to="/" />} />
         <Route path="/scanner" element={isLoggedIn ? <ScannerPage /> : <Navigate to="/" />} />

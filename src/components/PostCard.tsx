@@ -5,13 +5,18 @@ import { useLikes } from "@/context/LikesContext";
 import { cn } from "@/lib/utils";
 import type { Post } from "@/data/mockData";
 
-const PostCard = ({ post }: { post: Post }) => {
+const PostCard = ({ post, className }: { post: Post; className?: string }) => {
   const navigate = useNavigate();
   const { isLiked, toggleLike } = useLikes();
   const liked = isLiked(post.id);
 
   return (
-    <div className="flex gap-3 p-3 bg-card rounded-xl border border-border hover:shadow-md transition-shadow w-full text-left relative">
+    <div
+      className={cn(
+        "flex gap-3 p-3 bg-card rounded-xl border border-border hover:shadow-md transition-shadow w-full text-left relative",
+        className
+      )}
+    >
       <button
         onClick={() => navigate(`/post/${post.id}`)}
         className="flex gap-3 flex-1 min-w-0"

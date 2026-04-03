@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, MapPin, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import agroconnectOriginal from "@/assets/agroconnect-original.png";
+import agroconnectOriginal from "@/assets/agroConnect_LogoWithName-removebg-preview.png";
 import bgPicIndex from "@/assets/Bg_Pic_Index.jpg";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -28,29 +28,16 @@ const Index = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Background photo — very low opacity */}
-      <img
-        src={bgPicIndex}
-        alt=""
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.15]"
-        aria-hidden
-      />
-      {/* Soft green wash keeps text readable over the photo */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-white"
-        aria-hidden
-      />
 
       <div className="relative z-10 flex min-h-full flex-col">
       {/* Header */}
       <div className="border-b border-emerald-200/60 bg-gradient-to-r from-emerald-100/50 via-emerald-50/40 to-teal-50/30 px-5 pb-4 pt-6">
         <div className="flex items-center justify-between mb-1">
-          <div className="flex items-center gap-1.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/80 shadow-sm ring-1 ring-emerald-200/60">
-              <img src={agroconnectOriginal} alt="" className="h-8 w-8 object-contain" />
+          <div className="flex items-center gap-0.5">
+            <div className="flex h-7 w-auto items-center">
+              <img src={agroconnectOriginal} alt="" className="h-7 w-auto object-contain" />
             </div>
             <div className="leading-tight">
-              <h1 className="text-lg font-bold text-primary tracking-tight">AgroConnect</h1>
               <span className="font-cursive text-sm text-emerald-800/70 leading-none">by RasaRakyat</span>
             </div>
           </div>
@@ -63,10 +50,10 @@ const Index = () => {
             <MessageCircle className="w-5 h-5" />
           </button>
         </div>
-        <h2 className="text-2xl font-bold text-emerald-950 mt-2">
-          Hello, Neighbor! <span className="inline-block">👋</span>
+        <h2 className="text-2xl font-bold text-emerald-950 mt-2 ml-3">
+          Hello, Neighbor!
         </h2>
-        <p className="text-sm font-medium text-emerald-800/85 mt-0.5">
+        <p className="text-sm font-medium text-emerald-800/85 mt-0.5 ml-3">
           Fresh crops from your community
         </p>
       </div>
@@ -86,7 +73,7 @@ const Index = () => {
         <div className="mt-4">
           <div className="relative overflow-hidden rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-emerald-100/90 via-teal-50/80 to-green-100/90 p-4 shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=80"
+              src={bgPicIndex}
               alt="Community farm field"
               className="absolute inset-0 h-full w-full object-cover opacity-25"
             />
@@ -173,7 +160,7 @@ const Index = () => {
           >
             <PostCard
               post={post}
-              className="border-emerald-200/80 bg-white/85 shadow-sm hover:border-primary/25 hover:shadow-md"
+              className="border-black-200/80 bg-white/85 shadow-sm hover:border-primary/25 hover:shadow-md"
             />
           </motion.div>
         ))}
