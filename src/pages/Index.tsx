@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search, MapPin, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import agroconnectOriginal from "@/assets/agroconnect-original.png";
+import bgPicIndex from "@/assets/Bg_Pic_Index.jpg";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import PostCard from "@/components/PostCard";
@@ -22,54 +23,81 @@ const Index = () => {
 
   return (
     <motion.div
-      className="flex flex-col"
+      className="relative flex min-h-full flex-col overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
+      {/* Background photo — very low opacity */}
+      <img
+        src={bgPicIndex}
+        alt=""
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.15]"
+        aria-hidden
+      />
+      {/* Soft green wash keeps text readable over the photo */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-white"
+        aria-hidden
+      />
+
+      <div className="relative z-10 flex min-h-full flex-col">
       {/* Header */}
-      <div className="px-5 pt-6 pb-3">
+      <div className="border-b border-emerald-200/60 bg-gradient-to-r from-emerald-100/50 via-emerald-50/40 to-teal-50/30 px-5 pb-4 pt-6">
         <div className="flex items-center justify-between mb-1">
           <div className="flex items-center gap-1.5">
-            <img src={agroconnectOriginal} alt="AgroConnect" className="h-9 w-9 object-contain" />
-            <h1 className="text-lg font-bold text-primary tracking-tight leading-none">AgroConnect</h1>
-            <span className="font-cursive text-sm text-muted-foreground leading-none">by RasaRakyat</span>
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/80 shadow-sm ring-1 ring-emerald-200/60">
+              <img src={agroconnectOriginal} alt="" className="h-8 w-8 object-contain" />
+            </div>
+            <div className="leading-tight">
+              <h1 className="text-lg font-bold text-primary tracking-tight">AgroConnect</h1>
+              <span className="font-cursive text-sm text-emerald-800/70 leading-none">by RasaRakyat</span>
+            </div>
           </div>
-          <button onClick={() => navigate("/chats")} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
-            <MessageCircle className="w-6 h-6" />
+          <button
+            type="button"
+            onClick={() => navigate("/chats")}
+            className="flex h-10 w-10 items-center justify-center rounded-2xl border border-emerald-200/70 bg-white/70 text-emerald-800/80 shadow-sm transition hover:bg-emerald-50 hover:text-primary"
+            aria-label="Messages"
+          >
+            <MessageCircle className="w-5 h-5" />
           </button>
         </div>
-        <h1 className="text-2xl font-bold text-foreground">Hello, Neighbor! 👋</h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
+        <h2 className="text-2xl font-bold text-emerald-950 mt-2">
+          Hello, Neighbor! <span className="inline-block">👋</span>
+        </h2>
+        <p className="text-sm font-medium text-emerald-800/85 mt-0.5">
           Fresh crops from your community
         </p>
       </div>
 
       {/* Search bar */}
-      <div className="px-5 mb-3">
+      <div className="px-5 mb-3 pt-4">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <Search className="absolute left-3 top-1/2 z-[1] -translate-y-1/2 w-4 h-4 text-emerald-700/55" />
           <Input
             placeholder="Search crops, herbs, fruits..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="pl-9 bg-muted border-0 rounded-xl"
+            className="pl-9 rounded-xl border border-emerald-200/80 bg-white/90 shadow-sm placeholder:text-emerald-900/35 focus-visible:border-primary/40 focus-visible:ring-primary/20"
           />
         </div>
         {/* Inspirational card */}
         <div className="mt-4">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-green-50 via-white to-green-100 p-4">
+          <div className="relative overflow-hidden rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-emerald-100/90 via-teal-50/80 to-green-100/90 p-4 shadow-sm">
             <img
               src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=80"
               alt="Community farm field"
-              className="absolute inset-0 h-full w-full object-cover opacity-30"
+              className="absolute inset-0 h-full w-full object-cover opacity-25"
             />
             <div className="relative z-10 space-y-2">
-              <span className="inline-flex items-center gap-2 rounded-full bg-green-900/90 px-2 py-1 text-xs font-bold tracking-wide text-white">
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-900/95 px-2.5 py-1 text-xs font-bold tracking-wide text-white shadow-sm">
                 🌿 Grow Together!
               </span>
-              <h3 className="text-lg font-bold text-green-900">Join the village harvest community</h3>
-              <p className="text-sm text-green-900">
+              <h3 className="text-lg font-bold text-emerald-950 drop-shadow-sm">
+                Join the village harvest community
+              </h3>
+              <p className="text-sm leading-relaxed text-emerald-900/90">
                 List your fresh produce, support neighbors, and earn from local demand. Your next harvest hero story starts here.
               </p>
             </div>
@@ -77,19 +105,20 @@ const Index = () => {
         </div>
 
         {/* Location chips */}
-        <div className="flex gap-2 mt-2 overflow-x-auto pb-1 scrollbar-hide">
+        <div className="flex gap-2 mt-4 overflow-x-auto pb-1 scrollbar-hide -mx-0.5 px-0.5">
           {distances.map((d) => (
             <button
               key={d}
+              type="button"
               onClick={() => setActiveDistance(d)}
               className={cn(
-                "flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap border transition-colors",
+                "flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-semibold whitespace-nowrap border transition-colors",
                 activeDistance === d
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-card text-muted-foreground border-border"
+                  ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                  : "border-emerald-200/90 bg-white/85 text-emerald-900/75 hover:border-primary/35 hover:bg-emerald-50"
               )}
             >
-              <MapPin className="w-3 h-3" />
+              <MapPin className="w-3 h-3 opacity-90" />
               {d}
             </button>
           ))}
@@ -100,25 +129,27 @@ const Index = () => {
       <div className="px-5 mb-3">
         <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
           <button
+            type="button"
             onClick={() => setActiveCategory(null)}
             className={cn(
-              "px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap border transition-colors",
+              "px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition-colors",
               !activeCategory
-                ? "bg-primary text-primary-foreground border-primary"
-                : "bg-card text-muted-foreground border-border"
+                ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                : "border-emerald-200/90 bg-white/85 text-emerald-900/75 hover:border-primary/35 hover:bg-emerald-50"
             )}
           >
             All
           </button>
           {categories.map((cat) => (
             <button
+              type="button"
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={cn(
-                "px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap border transition-colors",
+                "px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition-colors",
                 activeCategory === cat.id
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-card text-muted-foreground border-border"
+                  ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                  : "border-emerald-200/90 bg-white/85 text-emerald-900/75 hover:border-primary/35 hover:bg-emerald-50"
               )}
             >
               {cat.label}
@@ -128,10 +159,11 @@ const Index = () => {
       </div>
 
       {/* Feed */}
-      <div className="px-4 pb-4 flex flex-col gap-3">
-        <h2 className="text-sm font-semibold text-muted-foreground px-1">
-          Recent Listings
-        </h2>
+      <div className="px-4 pb-6 flex flex-col gap-3">
+        <div className="flex items-center justify-between px-1">
+          <h2 className="text-sm font-bold text-emerald-900">Recent listings</h2>
+          <span className="text-[11px] font-medium text-emerald-700/80 tabular-nums">{filtered.length} nearby</span>
+        </div>
         {filtered.map((post, i) => (
           <motion.div
             key={post.id}
@@ -139,9 +171,13 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
           >
-            <PostCard post={post} />
+            <PostCard
+              post={post}
+              className="border-emerald-200/80 bg-white/85 shadow-sm hover:border-primary/25 hover:shadow-md"
+            />
           </motion.div>
         ))}
+      </div>
       </div>
     </motion.div>
   );
