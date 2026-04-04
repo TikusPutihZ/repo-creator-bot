@@ -25,7 +25,7 @@ const ProfilePage = () => {
       animate={{ opacity: 1 }}
     >
       {/* Header */}
-      <div className="px-5 pt-6 pb-4 flex items-start justify-between">
+      <div className="px-5 pt-6 pb-4 flex items-start justify-between mt-7">
         <div className="flex items-center gap-3">
           <img
             src={currentUser.avatar}
@@ -43,15 +43,15 @@ const ProfilePage = () => {
       </div>
 
       {/* Stats */}
-      <div className="mx-5 bg-muted rounded-xl p-4 grid grid-cols-3 gap-1 text-center">
+      <div className="mx-5 mt-5 bg-muted rounded-xl p-4 grid grid-cols-3 gap-1 text-white text-center bg-primary">
         {([
           ["Given", currentUser.stats.givenAway],
           ["Sold", currentUser.stats.sold],
           ["Followers", currentUser.stats.followers],
         ] as const).map(([label, value]) => (
           <div key={label}>
-            <p className="text-lg font-bold text-foreground">{value}</p>
-            <p className="text-[10px] text-muted-foreground">{label}</p>
+            <p className="text-lg font-bold text-white">{value}</p>
+            <p className="text-[10px] text-white">{label}</p>
           </div>
         ))}
       </div>
