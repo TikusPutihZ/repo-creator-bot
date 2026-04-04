@@ -49,7 +49,7 @@ const MapPage = () => {
               {pin.emoji}
             </div>
             <div className="bg-card rounded-md px-1.5 py-0.5 mt-1 shadow-sm border border-border">
-              <span className="text-[9px] font-medium text-card-foreground">{pin.title}</span>
+              <span className="text-[8px] font-medium text-card-foreground">{pin.title}</span>
             </div>
           </motion.button>
         ))}

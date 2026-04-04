@@ -18,7 +18,7 @@ const AuthLandingPage = () => {
       />
 
       {/* Soft overlays — gentle dim so the photo stays visible but UI stays readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/[0.22] to-black/45" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/[0.22] to-black/70" aria-hidden />
       <div className="absolute inset-0 bg-emerald-950/20" aria-hidden />
 
       <motion.div

@@ -44,8 +44,8 @@ const CreateAccountPage = () => {
             alt="AgroConnect"
             className="h-20 w-auto max-w-[280px] object-contain"
           />
-          <h1 className="mt-1 text-center text-xl font-semibold text-foreground">Create account</h1>
-          <p className="mt-1 text-center text-sm text-muted-foreground">
+          <h1 className="mt-1 text-center text-xl font-semibold text-green-900">Create account</h1>
+          <p className="mt-1 text-center text-sm text-green-900">
             Join your neighbors and start sharing.
           </p>
         </div>

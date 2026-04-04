@@ -62,7 +62,7 @@ const LoginPage = () => {
             clipPath: "ellipse(90% 100% at 50% 0%)" // Creates the bottom curved effect
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/[0.22] to-black/45" aria-hidden
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/[0.22] to-black/70" aria-hidden
         style={{ 
           clipPath: "ellipse(90% 100% at 50% 0%)" // Creates the bottom curved effect
         }} />
@@ -94,8 +94,8 @@ const LoginPage = () => {
         className="flex flex-col items-center w-full max-w-sm mx-auto px-6 pb-8 pt-6"
       >
         {/* Retaining original text and form structure */}
-        <h1 className="text-center text-2xl font-bold text-foreground">Welcome Back!</h1>
-        <p className="text-sm text-muted-foreground mt-1 text-center">
+        <h1 className="text-center text-2xl font-bold text-green-900">Welcome Back!</h1>
+        <p className="text-sm text-green-900 mt-1 text-center">
           Share your harvest, grow your community
         </p>
 

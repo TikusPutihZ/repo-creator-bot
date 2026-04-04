@@ -32,7 +32,7 @@ const Index = () => {
 
       <div className="relative z-10 flex min-h-full flex-col">
     {/* Header Container */}
-    <div className="relative border-b border-green-200/60 px-5 pb-4 pt-6 overflow-hidden">
+    <div className="relative border-b px-5 pb-4 pt-6 overflow-hidden">
       
       {/* Background Image Layer */}
       <div 
@@ -86,25 +86,27 @@ const Index = () => {
             placeholder="Search crops, herbs, fruits..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="pl-9 rounded-xl border border-emerald-200/80 bg-white/90 shadow-sm placeholder:text-emerald-900/35 focus-visible:border-primary/40 focus-visible:ring-primary/20"
+            className="pl-9 rounded-xl border bg-white/90 shadow-sm placeholder:text-emerald-900/35 focus-visible:border-primary/40 focus-visible:ring-primary/20"
           />
         </div>
         {/* Inspirational card */}
         <div className="mt-4">
-          <div className="relative overflow-hidden rounded-2xl border border-emerald-200/70 bg-gradient-to-br from-emerald-100/90 via-teal-50/80 to-green-100/90 p-4 shadow-sm">
+          <div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-emerald-100/90 via-teal-50/80 to-green-100/90 p-4 shadow-sm">
             <img
               src={bgPicIndex}
               alt="Community farm field"
-              className="absolute inset-0 h-full w-full object-cover opacity-25"
+              className="absolute inset-0 h-full w-full object-cover opacity-100"
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/[0.22] to-black/70" aria-hidden />
+
             <div className="relative z-10 space-y-2">
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-900/95 px-2.5 py-1 text-xs font-bold tracking-wide text-white shadow-sm">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/75 px-2.5 py-1 text-xs font-bold tracking-wide text-emerald-900 shadow-sm">
                 🌿 Grow Together!
               </span>
-              <h3 className="text-lg font-bold text-emerald-950 drop-shadow-sm">
+              <h3 className="text-lg font-bold text-white drop-shadow-sm">
                 Join the village harvest community
               </h3>
-              <p className="text-sm leading-relaxed text-emerald-900/90">
+              <p className="text-sm leading-relaxed text-white">
                 List your fresh produce, support neighbors, and earn from local demand. Your next harvest hero story starts here.
               </p>
             </div>
@@ -122,7 +124,7 @@ const Index = () => {
                 "flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-semibold whitespace-nowrap border transition-colors",
                 activeDistance === d
                   ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                  : "border-emerald-200/90 bg-white/85 text-emerald-900/75 hover:border-primary/35 hover:bg-emerald-50"
+                  : "bg-white/85 text-emerald-900/75 hover:border-primary/35 hover:bg-emerald-50"
               )}
             >
               <MapPin className="w-3 h-3 opacity-90" />
@@ -156,7 +158,7 @@ const Index = () => {
                 "px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition-colors",
                 activeCategory === cat.id
                   ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                  : "border-emerald-200/90 bg-white/85 text-emerald-900/75 hover:border-primary/35 hover:bg-emerald-50"
+                  : "bg-white/85 text-emerald-900/75 hover:border-primary/35 hover:bg-emerald-50"
               )}
             >
               {cat.label}
